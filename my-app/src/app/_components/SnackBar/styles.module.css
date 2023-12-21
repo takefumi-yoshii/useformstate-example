@@ -1,0 +1,23 @@
+.box {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: max-content;
+  padding: 1em 2em;
+  border-radius: 4px;
+  transition-duration: .4s;
+}
+
+.fade {
+  opacity: 0;
+}
+
+.green {
+  color: rgb(0, 124, 128);
+  background-color: aquamarine;
+}
+
+.red {
+  color: brown;
+  background-color: pink;
+}

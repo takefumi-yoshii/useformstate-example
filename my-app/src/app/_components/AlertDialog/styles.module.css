@@ -1,0 +1,38 @@
+.portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .35);
+}
+
+.dialog {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  min-width: 240px;
+  min-height: 120px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.content {
+  word-break: break-all;
+}
+
+.footer {
+  display: flex;
+  gap: 8px;
+}
