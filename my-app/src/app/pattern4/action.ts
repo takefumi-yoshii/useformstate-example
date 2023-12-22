@@ -8,26 +8,20 @@ export async function action(
   formData: FormData
 ): Promise<State> {
   const select = formData.get("select");
-  const openDialog = formData.get("openDialog");
   if (typeof select !== "string" || select === "err") {
     throw new Error("test");
   }
-  if (typeof openDialog === "string" && openDialog === "true") {
-    return {
-      ...initialState,
-      data: { selectedValue: prevState.data.selectedValue },
-    };
+  if (prevState.showDialog) {
+    return handleSuccess(prevState.data, false);
   }
   if (select === prevState.data.selectedValue) {
     return prevState;
   }
   if (!values.includes(select)) {
-    return handleFail(prevState, {
+    return handleFail(prevState, true, {
       code: 400,
       message: `Does not match expected value`,
     });
   }
-  return handleSuccess({
-    selectedValue: select,
-  });
+  return handleSuccess({ selectedValue: select }, true);
 }

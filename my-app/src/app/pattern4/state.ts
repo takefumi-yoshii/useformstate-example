@@ -5,23 +5,27 @@ export type Err = { code: number; message: string };
 export type State = {
   data: Data;
   err: Err | null;
-  updatedAt: string | null;
+  showDialog: boolean;
 };
 
 export const initialState: State = {
   data: { selectedValue: "" },
   err: null,
-  updatedAt: null,
+  showDialog: false,
 };
 
-export const handleFail = (prevState: State, err: Err): State => ({
+export const handleFail = (
+  prevState: State,
+  showDialog: boolean,
+  err: Err
+): State => ({
   ...prevState,
   err,
-  updatedAt: Date.now().toString(),
+  showDialog,
 });
 
-export const handleSuccess = (data: Data): State => ({
+export const handleSuccess = (data: Data, showDialog: boolean): State => ({
   data,
   err: null,
-  updatedAt: Date.now().toString(),
+  showDialog,
 });

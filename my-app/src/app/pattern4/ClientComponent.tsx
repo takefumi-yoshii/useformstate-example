@@ -21,9 +21,8 @@ export default function ClientComponent({
       <SubmitButton />
       <hr />
       <p>{state.data.selectedValue}</p>
-      {state.updatedAt && (
+      {state.showDialog && (
         <AlertDialog buttonProps={{ children: "OK" }}>
-          <input type="hidden" name="openDialog" value="true" />
           {state.err ? (
             <ErrorMessage>{state.err.message}</ErrorMessage>
           ) : (
