@@ -5,7 +5,7 @@ import { initialState } from "./state";
 export default function Page() {
   return (
     <main className={styles.main}>
-      <h2 className={styles.heading}>Pattern3: AlertDialog1</h2>
+      <h2 className={styles.heading}>Pattern5: Snackbar</h2>
       <ClientComponent initalState={initialState} />
     </main>
   );

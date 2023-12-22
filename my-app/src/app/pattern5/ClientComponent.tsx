@@ -3,8 +3,7 @@
 import { useFormState } from "react-dom";
 import { Select } from "@/app/_components/Select";
 import { SubmitButton } from "@/app/_components/SubmitButton";
-import { AlertDialog } from "@/app/_components/AlertDialog";
-import { ErrorMessage } from "@/app/_components/ErrorMessage";
+import { SnackBar } from "@/app/_components/SnackBar";
 import { action } from "./action";
 import { State } from "./state";
 
@@ -22,17 +21,9 @@ export default function ClientComponent({
       <hr />
       <p>{state.data.selectedValue}</p>
       {state.updatedAt && (
-        <AlertDialog buttonProps={{ children: "OK" }}>
-          <input type="hidden" name="openDialog" value="true" />
-          {state.err ? (
-            <ErrorMessage>{state.err.message}</ErrorMessage>
-          ) : (
-            <p>
-              Succeeded update value to &ldquo;{state.data.selectedValue}
-              &ldquo;!
-            </p>
-          )}
-        </AlertDialog>
+        <SnackBar key={state.updatedAt} color={state.err ? "red" : "green"}>
+          {state.err ? state.err.message : "succeeded update value!"}
+        </SnackBar>
       )}
     </form>
   );
